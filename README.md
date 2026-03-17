@@ -47,4 +47,11 @@
 * Derin öğrenme modelleri
 * CNN
 * RNN
+ 
+## 6. Hafta Transformers Mimarisine Giriş
+* Transformers Mimarisine Giriş
+* Attention (Dikkat) Mekanizması
+* Positional Encoding (Konum Kodlaması)
+* Encoder-Decoder Yapısı
+* Transformers'ın Uygulama Alanları
 
