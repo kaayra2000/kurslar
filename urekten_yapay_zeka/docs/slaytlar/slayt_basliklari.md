@@ -1,5 +1,5 @@
 # Üretken Yapay Zeka
-### Makineler Nasıl Yaratıcı Olur?
+### Makineler Nasıl Üretken Olur?
 
 ---
 
@@ -14,14 +14,14 @@
 
 ---
 
-# Üretken vs Ayırt Edici Modeller
+# Üretken vs Ayırt edici Modeller
 
 | Özellik | Ayırt Edici | Üretken |
 |---------|-------------|---------|
 | **Amaç** | Sınıflandırma, tahmin | Yeni veri üretme |
-| **Öğrendiği** | P(y\|x) - Koşullu olasılık | P(x) veya P(x,y) - Birleşik olasılık |
-| **Örnek** | CNN, SVM, Logistic Regression | GAN, VAE, Diffusion |
-| **Çıktı** | Etiket, sınıf | Yeni görüntü, metin, ses |
+| **Öğrendiği** | $P(y|x)$ - Koşullu olasılık | $P(x)$ veya $P(x,y)$ - Birleşik olasılık |
+| **Örnek** | CNN, SVM, Logistic Regression | GAN, VAE, Diffusion, Flow |
+| **Çıktı** | Etiket, sınıf | Yeni görüntü, metin, ses, video |
 
 ---
 
@@ -35,7 +35,7 @@
 - Denge noktasında: ayırt edilemez kalitede üretim
 
 **Avantajlar:** Keskin, gerçekçi görüntüler  
-**Dezavantajlar:** Eğitim zorluğu, mode collapse
+**Dezavantajlar:** Eğitim zorluğu, mode collapse (mod çökmesi)
 
 ---
 
@@ -46,7 +46,7 @@
 - **Olasılıksal latent uzay** öğrenimi
 - Encoder: görüntüyü düşük boyutlu temsile sıkıştırır
 - Decoder: latent koddan görüntü yeniden oluşturur
-- Latent space'de gezinerek yeni varyasyonlar
+- Latent space'de gezinerek yeni varyasyonlar üretme
 
 **Avantajlar:** Kararlı eğitim, latent manipülasyonu  
 **Dezavantajlar:** Bulanık çıktılar
@@ -60,12 +60,12 @@
 - Adım adım **gürültü temizleme** süreci
 - Forward: görüntüye kademeli gürültü ekle
 - Reverse: gürültüyü kademeli temizle
-- Metin koşullandırması ile yönlendirme
+- Metin koşullandırması ile yönlendirme (CLIP/T5)
 
-**Avantajlar:** Yüksek kalite, çeşitlilik  
-**Dezavantajlar:** Yavaş üretim (50-100 adım)
+**Avantajlar:** Çok yüksek kalite, yüksek çeşitlilik  
+**Dezavantajlar:** Yavaş üretim (Optimization teknikleri ile hızlandırılsa da)
 
-**Örnekler:** Stable Diffusion, DALL-E, Midjourney
+**Örnekler:** Stable Diffusion 3.5, Flux.1, DALL-E 3
 
 ---
 
@@ -74,91 +74,87 @@
 | Model | Yıl | Katkısı |
 |-------|-----|---------|
 | DDPM | 2020 | Diffusion temellerini attı |
-| DALL-E | 2021 | Metinden görüntü, OpenAI |
-| Stable Diffusion | 2022 | Açık kaynak, latent diffusion |
-| Midjourney | 2022 | Sanatsal kalite odaklı |
-| DALL-E 3 | 2023 | Gelişmiş prompt anlama |
+| DALL-E 2 | 2022 | Yaygın metinden görüntü devrimi |
+| SDXL | 2023 | Yüksek çözünürlük, açık kaynak SOTA |
+| Flux.1 | 2024 | Rectified Flow, metin yazma başarısı |
+| DALL-E 4 | 2025 | Kusursuz fotorealizm ve kompozisyon |
 
 ---
 
 # LLM: Large Language Models
 
-**Büyük Dil Modelleri** — milyarlarca parametre ile metin anlama ve üretme
+**Büyük Dil Modelleri** — trilyonlarca parametre ile akıl yürütme ve metin üretimi
 
 | Model | Geliştirici | Parametre | Özellik |
 |-------|-------------|-----------|----------|
-| GPT-4 | OpenAI | ~1.7T | En yetenekli, kapalı |
-| Claude 3.5 Sonnet | Anthropic | ~200B | Uzun bağlam (200K token) |
-| Gemini 1.5 Pro | Google | ~? | 1M token bağlam |
-| Llama 3.1 | Meta | 405B | Açık kaynak SOTA |
-| DeepSeek-V3 | DeepSeek | 671B | MoE, çok verimli |
+| **GPT-5.4** | OpenAI | ~10T+ | AGI eşiği, üst düzey akıl yürütme |
+| **Claude 4.6 Opus** | Anthropic | Bilinmiyor | Duygusal zeka ve en güvenli kodlama |
+| **Gemini 3.1 Pro** | Google | ~5T+ | 10M+ token bağlam, yerleşik multimodal |
+| **Llama 4** | Meta | 600B+ | En güçlü açık kaynak, yerleşik tool-use |
+| **DeepSeek-V4** | DeepSeek | 800B+ | İleri düzey matematik ve verimlilik (MoE) |
 
-**Çalışma Prensibi:** Transformer + autoregressive (kelime kelime tahmin)
+**Çalışma Prensibi:** Transformer + Next-Token Prediction (Sıradaki kelime tahmini)
 
 ---
 
 # LVM: Large Vision Models
 
-**Büyük Görüntü Modelleri** — görüntü anlama ve üretme
+**Büyük Görüntü Modelleri** — görüntü anlama, analiz ve video üretimi
 
 **Multimodal LVM'ler (Anlama + Üretim)**
 
 | Model | Geliştirici | Yetenek |
 |-------|-------------|----------|
-| GPT-4o | OpenAI | Metin + görüntü + ses anlama/üretim |
-| Claude 3.5 Sonnet | Anthropic | Görüntü analizi, kod üretimi |
-| Gemini 1.5 Pro | Google | Video anlama, uzun bağlam |
-| Qwen2-VL | Alibaba | Açık kaynak multimodal |
-
-**Sadece Görüntü Üretimi**
-- DALL-E 3, Midjourney, Stable Diffusion (sonraki slaytlarda)
+| **GPT-4o** | OpenAI | Gecikmesiz ses/video/görüntü etkileşimi |
+| **Claude 4.6 Sonnet** | Anthropic | Karmaşık şema analizi ve teknik UI üretimi |
+| **Gemini 3.1 Pro** | Google | 10 saate kadar videoları saniyeler içinde anlama |
+| **Sora / Veo 2** | OpenAI/Google | Dakikalarca süren, fizik kurallarına uygun video üretimi |
 
 ---
 
 # Transformer Tabanlı Üretken Modeller
 
 **GPT Ailesi (Metin)**
-- GPT-3, GPT-4: metin üretimi
-- Autoregressive: kelime kelime üretim
-- ChatGPT: konuşma arayüzü
+- GPT-5 serisi: Karmaşık planlama ve otonom görevler.
+- Autoregressive: kelime kelime üretim.
 
 **Claude Ailesi (Anthropic)**
-- Claude 4.6 Opus, Sonnet, Haiku
-- Güvenlik ve etik odaklı
-- Constitutional AI ile eğitildi
+- Claude 4.6 Opus, Sonnet, Haiku.
+- "Constitutional AI" ile insan değerlerine en yakın modeller.
+- Çok düşük halüsinasyon oranı.
 
 **Vision Transformer Üretken Modelleri**
-- **DALL-E 2/3**: CLIP + Diffusion
-- **Imagen**: Google, metin-görüntü
-- **Parti**: Google, photorealistic
+- **DALL-E 4**: CLIP + Diffusion + Autoregressive hibrit yapı.
+- **Imagen 3**: Google'ın en gelişmiş metin-görüntü modeli.
+- **Stable Diffusion 3.5**: Çoklu konu (multi-subject) yönetiminde devrim.
 
 ---
 
 # CLIP: Görüntü-Metin Köprüsü
 
-- OpenAI tarafından geliştirildi (2021)
-- 400 milyon görüntü-metin çiftiyle eğitildi
-- Görüntü ve metni **aynı embedding uzayına** taşır
-- Diffusion modellerinin "yönlendirme" katmanı
+- OpenAI tarafından geliştirildi, modern modellerde evrildi.
+- Milyarlarca görüntü-metin çiftiyle eğitildi.
+- Görüntü ve metni **aynı embedding uzayına** taşır.
+- Diffusion modellerinin "gözü" ve "kulağı"dır.
 
 **Kullanım Alanları**
-- Zero-shot sınıflandırma
-- Metinden görüntü arama
-- Stable Diffusion'da prompt anlama
+- Sıfır örnekli (Zero-shot) sınıflandırma.
+- Metinle görsel arama ve filtreleme.
+- Üretken modellerde prompt'un içeriğe dönüştürülmesi.
 
 ---
 
-# Stable Diffusion Mimarisi
+# Stable Diffusion / Flux Mimarisi
 
 **3 Ana Bileşen**
 
-1. **Text Encoder (CLIP)** — prompt'u anlar
-2. **U-Net** — latent space'de gürültü temizler
-3. **VAE Decoder** — latent'i görüntüye dönüştürür
+1. **Text Encoder (T5-XXL / CLIP)** — karmaşık promptları anlar.
+2. **U-Net / Transformer Backbone** — gürültüyü temizler (Denoiser).
+3. **VAE Decoder** — matematiksel kodu görsele dönüştürür.
 
-**Latent Diffusion Avantajı**
-- Piksel yerine **sıkıştırılmış latent** üzerinde çalışır
-- 8x daha hızlı, 8x daha az bellek
+**Rectified Flow Avantajı**
+- Akış eşleştirme tekniği ile çok daha az adımda (4-8 adım) ultra kaliteli sonuçlar.
+- Parmak, el ve yazı detaylarında kusursuzluk.
 
 ---
 
@@ -166,39 +162,39 @@
 
 **Temel Prompt**
 ```
-a cat sitting on a chair
+gelecekteki bir şehir
 ```
 
 **Detaylı Prompt**
 ```
-a fluffy orange cat sitting on a vintage wooden chair,
-soft natural lighting, cozy living room background
+2077'de bir cyberpunk metropol, kanji işaretli neon tabelalar,
+ışıkları yansıtan yağmurlu sokaklar, hiper-gerçekçi
 ```
 
 **Stil Belirtilmiş**
 ```
-a cat sitting on a chair, oil painting style,
-impressionist, vibrant colors, artistic
+gelecekteki bir şehir, Studio Ghibli tarzı,
+gökdelenlerde yemyeşil bitkiler, yumuşak güneş ışığı
 ```
 
 **Fotografik**
 ```
-a cat sitting on a chair, professional photography,
-DSLR, shallow depth of field, 8k, highly detailed
+gelecekteki bir şehir, sinematik çekim, IMAX ile çekilmiş,
+8k çözünürlük, hacimsel aydınlatma, unreal engine 6 render
 ```
 
 ---
 
 # Negatif Prompt
 
-İstenmeyen özellikleri belirtir:
+İstenmeyen özellikleri dışlamak için (Modern modellerde artık daha az ihtiyaç duyuluyor):
 
 ```
-blurry, low quality, distorted, ugly, bad anatomy,
-cartoon, illustration, watermark
+bulanık, düşük kalite, bozuk, eksik uzuvlar,
+fazla parmaklar, filigran, grenli, çizgi film tarzı
 ```
 
-**Etkisi:** Modelin bu özellikleri üretmesini engeller
+**Etkisi:** Modelin olasılık uzayında bu alanlardan kaçınmasını sağlar.
 
 ---
 
@@ -206,79 +202,60 @@ cartoon, illustration, watermark
 
 | Parametre | Ne Yapar? | Değer Aralığı |
 |-----------|-----------|---------------|
-| **Guidance Scale** | Prompt'a bağlılık | 1-20 (önerilen: 7-10) |
-| **Steps** | Gürültü temizleme adımı | 20-150 (önerilen: 50) |
-| **Seed** | Tekrarlanabilirlik | 0-∞ |
-| **Resolution** | Çıktı boyutu | 512×512, 768×768, 1024×1024 |
+| **Guidance Scale (CFG)** | Prompt'a ne kadar sıkı bağlı kalacağı | 1-15 (önerilen: 3.5-7) |
+| **Sampling Steps** | Gürültü temizleme kalitesi | 10-100 (önerilen: 28) |
+| **Seed** | Üretimin "parmak izi" | 0-∞ |
+| **Aspect Ratio** | Görüntü oranı | 1:1, 16:9, 9:16, 21:9 |
 
 **Guidance Scale:**
-- Düşük (3-5): yaratıcı, çeşitli ama prompt'tan sapabilir
-- Yüksek (15-20): prompt'a sadık ama tekdüze
+- Düşük: Daha sanatsal ve özgür.
+- Yüksek: Daha belirgin ama bazen yapay duran renkler.
 
 ---
 
-# Çağdaş Üretken Modeller: Görüntü (2023-2025)
+# Çağdaş Üretken Modeller: Görüntü (2025-2026)
 
 | Model | Geliştirici | Özellik |
 |-------|-------------|---------|
-| DALL-E 3 | OpenAI | Gelişmiş prompt anlama |
-| Midjourney v6 | Midjourney | Sanatsal kalite |
-| Stable Diffusion XL | Stability AI | Yüksek çözünürlük |
-| Imagen 2 | Google | Photorealistic |
-| Firefly | Adobe | Ticari kullanım güvenli |
-| Flux | Black Forest Labs | Açık kaynak, SOTA |
+| **DALL-E 4** | OpenAI | Kusursuz metin yazma, yüksek estetik |
+| **Midjourney v7** | Midjourney | Dünyanın en iyi doku (texture) kalitesi |
+| **Flux.1.1 Pro** | BFL | Açık kaynak kökenli en güçlü mimari |
+| **Imagen 3** | Google | Tam fotorealizm ve Google Workspace entegrasyonu |
+| **Firefly v4** | Adobe | Telif hakları garantili, tam ticari güven |
 
 ---
 
-# Çağdaş Üretken Modeller: Metin (2023-2025)
+# Çağdaş Üretken Modeller: Metin (2025-2026)
 
 | Model | Geliştirici | Özellik |
 |-------|-------------|---------|
-| GPT-4 Turbo/o | OpenAI | Multimodal, function calling |
-| Claude 3.5 Sonnet | Anthropic | 200K bağlam, kod üretimi |
-| Gemini 1.5 Pro | Google | 1M token, video anlama |
-| Llama 3.1 405B | Meta | Açık kaynak, en büyük |
-| DeepSeek-V3 | DeepSeek | MoE, maliyet-verimli |
-| Qwen2.5 | Alibaba | Çok dilli, açık kaynak |
-
----
-
-# Flux: Yeni Nesil Diffusion
-
-- Black Forest Labs (Stable Diffusion ekibi) tarafından geliştirildi (2024)
-- **Rectified Flow** mimarisi (diffusion'dan daha hızlı)
-- 12 milyar parametre
-- Metin rendering'de çok başarılı
-- Açık kaynak versiyonları mevcut
-
-**Varyantlar:**
-- Flux.1 Pro — en kaliteli, kapalı
-- Flux.1 Dev — açık, ticari olmayan
-- Flux.1 Schnell — hızlı, 4 adım
+| **GPT-5.4** | OpenAI | Agentic AI (Kendi başına iş bitirme yeteneği) |
+| **Claude 4.6 Opus** | Anthropic | İleri düzey akıl yürütme ve etik uyum |
+| **Gemini 3.1 Ultra** | Google | 10M+ token video/doküman bağlamı |
+| **Llama 4 600B** | Meta | Yerel kurulumda en yüksek performans |
+| **DeepSeek-V4** | DeepSeek | En iyi fiyat/performans ve kodlama başarısı |
 
 ---
 
 # Uygulama Alanları
 
-- 🎨 **Sanat ve Tasarım** — Midjourney, DALL-E ile görsel içerik
-- 📊 **Veri Artırma** — eğitim verisi çoğaltma
-- 💊 **İlaç Keşfi** — molekül yapısı, protein tasarımı
-- 🎮 **Oyun/Film** — texture, karakter, asset üretimi
-- 👤 **Kişiselleştirilmiş İçerik** — avatar, özel tasarım
-- 📝 **Belge Üretimi** — sentetik form, fatura
+- 🎨 **Reklamcılık** — Saniyeler içinde kampanya görselleri üretimi.
+- 💻 **Yazılım Geliştirme** — Claude 4.6 ile uçtan uca uygulama kodlama.
+- 💊 **Biyoteknoloji** — Yeni protein katlanmaları ve molekül keşfi.
+- 🎬 **Eğlence** — Sora ve Veo 2 ile kişiye özel film sahneleri.
+- 🏛️ **Eğitim** — Kişiselleştirilmiş, her öğrenciye özel öğretmen asistanları.
 
 ---
 
 # Etik ve Telif Hakları
 
-**Sorunlar**
-- Eğitim verisi telif hakkı ihlali mi?
-- Deepfake ve dezenformasyon riski
-- Sanatçıların işlerinin kopyalanması
+**Güncel Durum**
+- **Eğitim Verisi:** Sanatçıların opt-out (veriden çıkma) hakları yasallaşıyor.
+- **Deepfake:** C2PA protokolü ile görsellere "Yapay Zeka" damgası (Watermarking).
+- **İş Gücü:** Tekrarlı işlerin otomasyonu ve yeni "AI Operatörlüğü" mesleği.
 
 **Çözümler**
-- Adobe Firefly: lisanslı veri ile eğitildi
-- Watermarking: üretilen içeriği işaretle
-- Yasal düzenlemeler (AB AI Act)
+- **AB Yapay Zeka Yasası (AI Act):** Riskli modellerin denetlenmesi.
+- **Sentetik Veri:** Modellerin artık kendi ürettikleri temiz verilerle eğitilmesi.
 
 ---
