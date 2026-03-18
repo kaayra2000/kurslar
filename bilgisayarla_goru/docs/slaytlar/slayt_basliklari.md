@@ -9,8 +9,8 @@
 - Görüntü işlemenin temelleri
 - Özellik çıkarımı ve nesne tanıma
 - CNN'den Vision Transformer'a
-- Çağdaş modeller ve mimariler
-- OCR: Belgelerden metin çıkarma
+- Çağdaş modeller ve mimariler (SOTA 2026)
+- Agentic OCR: Belgeleri anlamlandırma
 - Gerçek hayat uygulama alanları
 
 ---
@@ -19,9 +19,9 @@
 
 > Makinelerin dijital görüntü ve videolardan anlamlı bilgi çıkarmasını sağlayan yapay zeka dalı
 
-- Görüntü işleme → pikselleri dönüştürür
-- Bilgisayarlı görü → pikselleri **anlar**
-- Makine öğrenimi ile birlikte çalışır
+- Görüntü işleme → pikselleri dönüştürür (Girdi: Görsel, Çıktı: Görsel)
+- Bilgisayarlı görü → pikselleri **anlar** (Girdi: Görsel, Çıktı: Anlam/Veri)
+- Çok modlu (multimodal) yapay zeka ile metin ve sesi birleştirir
 
 ---
 
@@ -30,10 +30,11 @@
 | Yıl | Olay |
 |-----|------|
 | 1960'lar | İlk görüntü işleme deneyleri |
-| 1980'ler | Kenar tespiti algoritmaları |
 | 2012 | AlexNet → Derin öğrenme devrimi |
-| 2016 | YOLO → Gerçek zamanlı tespit |
-| Günümüz | Otonom araçlar, tıbbi AI |
+| 2020 | ViT → Transformer dönemi |
+| 2023 | SAM → "Segment Anything" (Her şeyi bölütle) |
+| 2025 | DeepSeek-VL2 / GPT-5-V → Multimodal zeka |
+| **2026** | **YOLO26 & SAM 3** → Uç cihazlarda SOTA performans |
 
 ---
 
@@ -42,24 +43,25 @@
 - Her görüntü bir **sayı matrisi**dir
 - Her piksel: 0–255 arası değer
 - Renkli görüntü: 3 kanal (R, G, B)
-- 1920×1080 görüntü = ~6 milyon sayı
+- 4K Görüntü = ~25 milyon sayı (makine için devasa bir veri kümesi)
 
 ---
 
 # Görüntü İşlemenin Temelleri
 
+
+
 **Filtreleme**
 - Gaussian Blur → gürültü azaltma
-- Keskinleştirme → detay artırma
+- Bilateral Filter → kenarları koruyarak yumuşatma
 
 **Kenar Tespiti**
-- Sobel → yatay/dikey kenarlar
-- Canny → hassas kenar haritası
+- Sobel → gradyan bazlı kenarlar
+- Canny → modern standart, hassas kenar haritası
 
 **Renk Uzayları**
-- RGB → ekran gösterimi
-- HSV → renk bazlı filtreleme
-- Grayscale → hesaplama kolaylığı
+- RGB / HSV / Grayscale
+- LAB → insan gözüne en yakın algısal renk uzayı
 
 ---
 
@@ -67,129 +69,94 @@
 
 | Görev | Ne Yapar? | Örnek |
 |-------|-----------|-------|
-| Sınıflandırma | "Bu nedir?" | Kedi mi, köpek mi? |
-| Nesne Tespiti | "Nerede?" | Arabalar nerede? |
-| Segmentasyon | "Hangi piksel?" | Yol / bina / insan |
+| Sınıflandırma | "Bu nedir?" | Röntgen bulgusu: Zatürre |
+| Nesne Tespiti | "Nerede?" | Otonom sürüş: Yaya tespiti |
+| Segmentasyon | "Hangi piksel?" | SAM 3 ile tıbbi görüntü bölütleme |
 
 ---
 
 # Geleneksel → Derin Öğrenme
 
-**Geleneksel Yöntemler**
-- SIFT, SURF, HOG
-- Elle tasarlanmış özellikler
-- Sınırlı genelleme
+**Geleneksel Yöntemler** (SIFT, HOG)
+- Elle tasarlanmış özellikler (Hand-crafted)
+- Sınırlı genelleme, düşük işlem gücü
 
-**CNN Tabanlı Yaklaşım**
-- Özellikler otomatik öğrenilir
-- Çok daha yüksek doğruluk
-- Büyük veri gerektirir
+**Modern Yaklaşım** (Foundation Models)
+- Özellikler milyarlarca veriyle kendi kendine öğrenilir
+- **Sıfır-atış (zero-shot)** yeteneği: Hiç görmediği nesneyi tanıyabilir
 
 ---
 
-# CNN Mimarileri (2012–2017)
+# CNN ve Transformer Mimarileri
 
-| Model | Yıl | Katkısı |
-|-------|-----|---------|
-| AlexNet | 2012 | CNN devriminin başlangıcı |
-| VGGNet | 2014 | Derin ve sade mimari |
-| ResNet | 2015 | Skip connection ile çok derin ağlar |
-| YOLO | 2016 | Gerçek zamanlı nesne tespiti |
-| Mask R-CNN | 2017 | Instance segmentation |
-
----
-
-# Transformer Nedir?
-
-- 2017'de NLP için geliştirildi ("Attention is All You Need")
-- **Self-attention** mekanizması: her token diğerleriyle ilişki kurar
-- CNN'den farkı: yerel değil **global bağlam** görür
-- Görüntüye uyarlanması → **Vision Transformer (ViT)**
+| Model | Öne Çıkan Özellik |
+|-------|-------------------|
+| **ResNet** | Skip connections (Derin ağların temel taşı) |
+| **YOLO26** | 2026'nın en hızlısı; NMS-free ve CPU üzerinde %43 daha hızlı |
+| **DINOv2** | Kendi kendine öğrenen (Self-supervised) güçlü görsel özellikler |
+| **Swin-T** | Hiyerarşik Transformer; pikselleri gruplandırarak işler |
 
 ---
 
-# Vision Transformer (ViT)
+# Vision Transformer (ViT) ve Ötesi
 
-- Görüntü küçük **patch**'lere bölünür (ör. 16×16 piksel)
-- Her patch bir token gibi işlenir
-- Transformer encoder ile işlenir
-- Yeterli veriyle CNN'i geçer
+- Görüntü küçük **patch**'lere bölünür (ör. 14×14 piksel)
+- **Self-attention** mekanizması ile pikseller arası uzun mesafe ilişkileri kurulur
+- CNN'den farkı: Görüntünün bir köşesindeki bilgiyle diğer köşesini aynı anda ilişkilendirir (**Global Bağlam**)
 
-| Özellik | CNN | ViT |
+| Özellik | CNN | ViT (2026 Standartları) |
 |---------|-----|-----|
-| Bağlam | Yerel | Global |
-| Az veri | ✅ İyi | ❌ Zayıf |
-| Çok veri | ✅ İyi | ✅ Daha iyi |
-| Yorumlanabilirlik | Zor | Attention map ile kolay |
+| Bağlam | Yerel (Piksel komşuluğu) | Global (Tüm görüntü) |
+| Veri | Orta düzey veriyle verimli | Dev veri setleriyle (JFT-4B) kusursuz |
+| Uygulama | Mobil ve hafif cihazlar | Bulut tabanlı ağır analizler |
 
 ---
 
-# Çağdaş Mimariler (2020+)
+# Çağdaş Mimariler (2024–2026)
 
 | Model | Yıl | Katkısı |
 |-------|-----|---------|
-| ViT | 2020 | Transformer'ı görüntüye uyarladı |
-| Swin Transformer | 2021 | Hiyerarşik ViT, daha verimli |
-| CLIP | 2021 | Görüntü + metin birlikte öğrenir |
-| SAM | 2023 | Her şeyi segmente eder |
-| YOLOv8/v11 | 2023+ | Gerçek zamanlı SOTA tespit |
-| DeepSeek-OCR-2 | 2025 | Belge OCR, formül ve tablo desteği |
+| **SAM 3** | 2026 | Video ve 3D sahnelerde anlık "prompt" ile bölütleme |
+| **GPT-5-V** | 2025 | Görsel akıl yürütmede insan seviyesi |
+| **Gemini 3** | 2026 | 10+ saatlik videoyu saniyeler içinde analiz etme |
+| **YOLO26** | 2026 | MuSGD optimizasyonu ile uç cihazlarda milisaniye hızında tespit |
+| **RF-DETR** | 2025 | Transformer tabanlı gerçek zamanlı nesne tespiti (SOTA) |
 
 ---
 
-# CLIP: Görüntü + Dil
+# CLIP ve Çok Modlu Öğrenme
 
-- OpenAI tarafından geliştirildi (2021)
-- 400 milyon görüntü-metin çiftiyle eğitildi
-- "Bir kedi fotoğrafı" yazınca doğru görseli bulur
-- **Sıfır-atış (zero-shot)** sınıflandırma yapabilir
-- Stable Diffusion, DALL-E gibi modellerin temeli
+- Görüntü ve metni aynı uzayda birleştirir
+- "Karda oynayan altın retriever" metniyle ilgili pikselleri eşleştirir
+- **Zero-shot** sınıflandırma: Hiç eğitilmediği bir sınıfı (ör. "nadir bir çiçek") sadece ismini bilerek bulabilir
 
 ---
 
-# SAM: Segment Anything Model
+# SAM 3: Segment Anything
 
-- Meta AI tarafından geliştirildi (2023)
-- Herhangi bir nesneyi, herhangi bir görüntüde segmente eder
-- Nokta, kutu veya metin ile yönlendirilebilir
-- 1 milyar+ maske ile eğitildi
-- Tıbbi görüntü, uydu fotoğrafı, video analizinde kullanılıyor
-
----
-
-# DeepSeek-OCR-2
-
-- DeepSeek tarafından geliştirildi (2025)
-- Belge görüntülerini **düz metin veya Markdown**'a dönüştürür
-- **Visual Causal Flow** adlı insan benzeri görsel kodlama kullanır
-- Çok dilli destek (multilingual)
-
-**Öne Çıkan Yetenekler**
-- 📐 Matematiksel formüller
-- 📊 Tablolar
-- 📄 Çok sütunlu karmaşık belgeler
-
-**olmOCR-bench Sonuçları**
-
-| Test | Skor |
-|------|------|
-| Genel | 76.30 |
-| Uzun/Küçük Metin | 90.70 |
-| Arxiv Matematik | 82.00 |
-| Çok Sütunlu | 79.00 |
-| Tablo | 77.40 |
-| Eski Tarama Matematik | 72.00 |
-| Düşük Kalite Eski Tarama | 33.80 |
+- Meta AI tarafından 2026 başında güncellendi
+- **Video desteği:** Hareketli nesneleri video boyunca takip ederek segmente eder
+- **Cihaz üzerinde (On-device):** Artık mobil işlemcilerde bile çalışabiliyor
+- Tıbbi analizlerden AR/VR dünyasına kadar temel altyapı haline geldi
 
 ---
 
-# Uygulama Alanları
+# Agentic OCR: DeepSeek-OCR-2 & Gemini 3
 
-- 🚗 **Otonom Araçlar** — şerit takibi, nesne algılama
-- 🏥 **Tıbbi Görüntü** — X-ray, MRI analizi
-- 🎭 **Artırılmış Gerçeklik** — yüz filtreleri
-- 🏭 **Kalite Kontrol** — üretim hattı hata tespiti
-- 🔒 **Güvenlik** — yüz tanıma, hareket algılama
+Artık sadece harf okumuyoruz, **anlam çıkarıyoruz**.
+
+- **DeepSeek-OCR-2 (2025):** Görsel veriyi doğrudan Markdown/LaTeX'e çevirir.
+- **Yetenekler:** Karmaşık tablolar, 3D grafikler ve el yazısı formüller.
+- **Agentic Yapı:** Model sadece metni çıkarmaz; "bu faturadaki toplam tutarı bul ve vergi oranını hesapla" gibi görevleri icra eder.
 
 ---
 
+# Uygulama Alanları (2026 Vizyonu)
+
+- 🚗 **Otonom Sistemler** — End-to-end sürüş (direkt görüntüden direksiyon hamlesine)
+- 🏥 **Hassas Tıp** — AI tabanlı anlık cerrahi asistanlık ve kanser erken teşhisi
+- 👓 **Spatial Computing** — Karma gerçeklik (Apple Vision Pro/Quest 4) ortam algılama
+- 🤖 **İnsansı Robotlar** — Nesneleri tanıma, kavrama ve çevresel navigasyon (Physical AI)
+- 🏭 **Akıllı Üretim** — Sıfır hata ile üretim bantlarının 7/24 görsel denetimi
+
+---
