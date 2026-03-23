@@ -63,7 +63,7 @@
 - Metin koşullandırması ile yönlendirme (CLIP/T5)
 
 **Avantajlar:** Çok yüksek kalite, yüksek çeşitlilik  
-**Dezavantajlar:** Yavaş üretim (Optimization teknikleri ile hızlandırılsa da)
+**Dezavantajlar:** Yüksek hesaplama maliyeti (eğitim aşamasında)
 
 **Örnekler:** Stable Diffusion 3.5, Flux.1, DALL-E 3
 
@@ -77,7 +77,8 @@
 | DALL-E 2 | 2022 | Yaygın metinden görüntü devrimi |
 | SDXL | 2023 | Yüksek çözünürlük, açık kaynak SOTA |
 | Flux.1 | 2024 | Rectified Flow, metin yazma başarısı |
-| DALL-E 4 | 2025 | Kusursuz fotorealizm ve kompozisyon |
+| Sora 2 | 2025 | 1 saatlik video üretimi, fizik kurallarına uygun |
+| Flux.2 | 2026 | Gerçek zamanlı video-to-video ve 8K fotorealizm |
 
 ---
 
@@ -90,7 +91,7 @@
 | **GPT-5.4** | OpenAI | ~10T+ | AGI eşiği, üst düzey akıl yürütme |
 | **Claude 4.6 Opus** | Anthropic | Bilinmiyor | Duygusal zeka ve en güvenli kodlama |
 | **Gemini 3.1 Pro** | Google | ~5T+ | 10M+ token bağlam, yerleşik multimodal |
-| **Llama 4** | Meta | 600B+ | En güçlü açık kaynak, yerleşik tool-use |
+| **Llama 4** | Meta | 400B | En güçlü açık kaynak, yerleşik tool-use |
 | **DeepSeek-V4** | DeepSeek | 800B+ | İleri düzey matematik ve verimlilik (MoE) |
 
 **Çalışma Prensibi:** Transformer + Next-Token Prediction (Sıradaki kelime tahmini)
@@ -124,7 +125,7 @@
 - Çok düşük halüsinasyon oranı.
 
 **Vision Transformer Üretken Modelleri**
-- **DALL-E 4**: CLIP + Diffusion + Autoregressive hibrit yapı.
+- **GPT-5**: OpenAI'ın en gelişmiş multimodal modeli.
 - **Imagen 3**: Google'ın en gelişmiş metin-görüntü modeli.
 - **Stable Diffusion 3.5**: Çoklu konu (multi-subject) yönetiminde devrim.
 
@@ -180,7 +181,7 @@ gökdelenlerde yemyeşil bitkiler, yumuşak güneş ışığı
 **Fotografik**
 ```
 gelecekteki bir şehir, sinematik çekim, IMAX ile çekilmiş,
-8k çözünürlük, hacimsel aydınlatma, unreal engine 6 render
+8k çözünürlük, hacimsel aydınlatma, unreal engine 5.5 render
 ```
 
 ---
@@ -217,7 +218,7 @@ fazla parmaklar, filigran, grenli, çizgi film tarzı
 
 | Model | Geliştirici | Özellik |
 |-------|-------------|---------|
-| **DALL-E 4** | OpenAI | Kusursuz metin yazma, yüksek estetik |
+| **GPT-5** | OpenAI | Multimodal (Metin, Görüntü, Ses, Video) |
 | **Midjourney v7** | Midjourney | Dünyanın en iyi doku (texture) kalitesi |
 | **Flux.1.1 Pro** | BFL | Açık kaynak kökenli en güçlü mimari |
 | **Imagen 3** | Google | Tam fotorealizm ve Google Workspace entegrasyonu |
@@ -232,7 +233,7 @@ fazla parmaklar, filigran, grenli, çizgi film tarzı
 | **GPT-5.4** | OpenAI | Agentic AI (Kendi başına iş bitirme yeteneği) |
 | **Claude 4.6 Opus** | Anthropic | İleri düzey akıl yürütme ve etik uyum |
 | **Gemini 3.1 Ultra** | Google | 10M+ token video/doküman bağlamı |
-| **Llama 4 600B** | Meta | Yerel kurulumda en yüksek performans |
+| **Llama 4 2T** | Meta | Yerel kurulumda en yüksek performans |
 | **DeepSeek-V4** | DeepSeek | En iyi fiyat/performans ve kodlama başarısı |
 
 ---
