@@ -10,7 +10,7 @@
 - Özellik çıkarımı ve nesne tanıma
 - CNN'den Vision Transformer'a
 - Çağdaş modeller ve mimariler (SOTA 2026)
-- Agentic OCR: Belgeleri anlamlandırma
+- OCR: Belgeleri anlamlandırma
 - Gerçek hayat uygulama alanları
 
 ---
@@ -92,7 +92,7 @@
 | Model | Öne Çıkan Özellik |
 |-------|-------------------|
 | **ResNet** | Skip connections (Derin ağların temel taşı) |
-| **YOLO26** | 2026'nın en hızlısı; NMS-free ve CPU üzerinde %43 daha hızlı |
+| **YOLO26** | 2026'nın en hızlısı; NMS-free ve CPU üzerinde %43 daha hızlı (YOLO11-N'a göre) |
 | **DINOv2** | Kendi kendine öğrenen (Self-supervised) güçlü görsel özellikler |
 | **Swin-T** | Hiyerarşik Transformer; pikselleri gruplandırarak işler |
 
@@ -141,14 +141,12 @@
 
 ---
 
-# Agentic OCR: DeepSeek-OCR-2 & Gemini 3
+# OCR: DeepSeek-OCR-2 & Gemini 3
 
 Artık sadece harf okumuyoruz, **anlam çıkarıyoruz**.
 
 - **DeepSeek-OCR-2 (2025):** Görsel veriyi doğrudan Markdown/LaTeX'e çevirir.
 - **Yetenekler:** Karmaşık tablolar, 3D grafikler ve el yazısı formüller.
-- **Agentic Yapı:** Model sadece metni çıkarmaz; "bu faturadaki toplam tutarı bul ve vergi oranını hesapla" gibi görevleri icra eder.
-
 ---
 
 # Uygulama Alanları (2026 Vizyonu)
