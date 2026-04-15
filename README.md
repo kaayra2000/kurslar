@@ -1,9 +1,35 @@
-# 📚 Kurs Deposu
 
-Bu depo, çeşitli kursların materyallerini içermektedir. **Her kurs ayrı bir daldadır**.
+# TeknoLab Önder — Yapay Zekâ Eğitimi
 
-## Kurslar
+Nisan 2026’da yapılan iki dersi kapsar.
 
-[Fikrî Araştırmalar Kulübü Yapay Zeka Kursu](https://github.com/kaayra2000/kurslar/tree/ytu_fark_2024_2025_yz): YTU FARK 2024-2025 Yılı Yapay Zeka kurs malzemeleri.
+## İçerik
 
-[TeknoLab Yapay Zeka Kursu](https://github.com/kaayra2000/kurslar/tree/teknolab_2026_bahar_yz): TeknoLab 2025-2026 Bahar Dönemi Yapay Zeka kurs malzemeleri.
+### 1. Ders — 04.04.2026
+
+- Yapay zekâ nedir?
+- Yapay zekânın tarihçesi ve gelişimi
+- Yapay zekâ türleri
+- Yapay zekâ ve veri
+- Veriye nasıl erişirim?
+- Nasıl kullanılabilir veri elde ederim?
+- Makine öğrenmesi (genel bakış)
+- Denetimli öğrenme (genel bakış)
+- Denetimsiz öğrenme (genel bakış)
+
+### 2. Ders — 18.04.2026
+
+- Doğal dil işleme (NLP) nedir?
+- Tokenizasyon
+- Lemmatizasyon
+- POS (sözcük türü etiketleme)
+- Vektör temsilleri ve kelime gömmeleri
+- Metin sınıflandırma
+- Benzerlik analizi
+- Duygu analizi
+- Derin öğrenme modelleri (genel bakış)
+- Transformers mimarisine giriş
+- Attention (dikkat) mekanizması
+- Positional encoding (konum kodlaması)
+- Encoder-decoder yapısı
+
