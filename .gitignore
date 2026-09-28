@@ -1,2 +1,5 @@
 **/*venv*/**
 **.joblib
+# Office kilit dosyaları
+~$*.pptx
+.~lock*#
