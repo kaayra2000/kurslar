@@ -219,11 +219,11 @@ paylaşabilir miyim?
 
 | Servis | Ücretsiz | Ücretli |
 |---|---|---|
-| Teal | Sınırsız CV, iş takibi | Teal+ 29 $/ay |
-| Jobscan | Kayıtta 5 tarama | 49,95 $/ay |
+| Teal | Sınırsız CV, iş takibi | Teal+ 29 $/30 gün |
+| Jobscan | Ayda 5 tarama | 49,95 $/ay |
 | Rezi | 1 CV, 3 PDF | 29 $/ay veya 149 $ ömür boyu |
-| Kickresume | Temel şablonlar | 8 $/ay (yıllık) |
-| Huntr | İş takibi | 40 $/ay |
+| Kickresume | 4 temel CV şablonu | 19 $/ay veya yıllık 54 $ |
+| Huntr | 100 ilana kadar takip | 40 $/ay |
 
 Genel LLM'ler (ChatGPT, Claude, Gemini): ücretsiz katman mevcut.
 
