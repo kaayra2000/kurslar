@@ -1,16 +1,7 @@
 # Yapay Zekâ ile Kariyer
 ### CV Hazırlama, Yönetme ve İlan Bulma
 
-Muhammed Kayra Bulut — YTÜ Yıldız Teknopark — Ekim 2026
-
----
-
-# Ben Kimim?
-
-- BT Yöneticisi, YTÜ Yıldız Teknopark
-- Önceden: Yazılım Mühendisi, TÜBİTAK BİLGEM Kriptoloji Bölümü
-- YTÜ Bilgisayar Mühendisliği doktora öğrencisi (LLM, NLP)
-- Eğitmen: YTÜ FARK, YTÜ Bilgisayar Mühendisliği, ÖNDER TeknoGenç
+Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — Ekim 2026
 
 > Not: Bu sunumdaki CV sistemi kendi iş arama sürecimde kullandığım gerçek bir depodur.
 
@@ -47,24 +38,17 @@ Muhammed Kayra Bulut — YTÜ Yıldız Teknopark — Ekim 2026
 
 ---
 
-# ATS Uyumlu CV Kuralları
+# ATS Uyumlu CV: Yap ve Yapma
 
-- Tek sütun, standart başlıklar (Deneyim, Eğitim, Projeler)
-- Metni seçilebilen PDF; kritik bilgi görsel veya tablo içinde değil
-- İlandaki terimleri birebir kullan
-- Ters kronolojik sıra: en yeni en üstte
+| Yap | Yapma |
+|---|---|
+| Tek sütun, standart başlıklar | Medeni durum, din gibi kişisel bilgi |
+| Metni seçilebilen PDF | "CV" veya "Özgeçmiş" başlığı |
+| İlandaki terimleri birebir kullan | Açıklanmamış kısaltma |
+| Ters kronolojik sıra | Aynı bilginin tekrarı |
+| | Gerçek olmayan bilgi |
 
----
-
-# Yapılmaması Gerekenler
-
-- Medeni durum, din gibi gereksiz kişisel bilgi
-- "CV" veya "Özgeçmiş" başlığı
-- Açıklanmamış kısaltma
-- Aynı bilginin tekrarı
-- Gerçek olmayan bilgi
-
-> Not: Bu liste kendi CV depomdaki RULES.md dosyasından alındı.
+> Not: "Yapma" listesi kendi CV depomdaki RULES.md dosyasından alındı.
 
 ---
 
@@ -103,7 +87,7 @@ Aşağıdaki ilan metnini ve CV maddemi karşılaştır.
 # CV'yi Kod Gibi Yönetmek: Problem
 
 - Tek CV her ilana uymaz
-- 4 alan (Java, LLM, ML, MLOps) × 2 dil × ilana özel sürümler = onlarca dosya
+- 4 alan (Java, LLM, ML, MLOps) × 2 dil + 64 ilan paketi = onlarca dosya
 - Hangi sürüm güncel? Yeni proje hangi CV'lere girdi? TR ve EN tutarlı mı?
 
 **Çözüm:** Yazılım mühendisliği prensipleri: tek doğruluk kaynağı, derleme, sürüm kontrolü, otomasyon.
@@ -216,25 +200,18 @@ paylaşabilir miyim?
 
 ---
 
-# Açık Kaynak: CV Araçları
+# Açık Kaynak Araçlar
 
-| Araç | Ne yapar | Lisans |
-|---|---|---|
-| Reactive Resume | Tarayıcıda CV editörü, self-host, JSON, YZ desteği | MIT |
-| RenderCV | YAML'dan PDF; CV'yi kod gibi yönet | MIT |
-| JSON Resume | Standart CV şeması ve CLI | MIT |
-| OpenResume | CV oluşturucu ve ATS ayrıştırıcı | AGPL-3.0 |
-| Resume Matcher | Yerel LLM ile ilan–CV uyumu | Apache-2.0 |
-
----
-
-# Açık Kaynak: İş Arama Ajanları
-
-| Araç | Ne yapar | Lisans |
-|---|---|---|
-| career-ops | CLI ajanı: ilan tara, 1-5 puanla, CV uyarla, takip et | MIT |
-| ai-job-search | Claude Code ile ilan değerlendirme, CV, ön yazı, mülakat | MIT |
-| ApplyPilot | Form doldurma ve otomatik başvuru (dikkat!) | AGPL-3.0 |
+| Araç | Tür | Ne yapar | Lisans |
+|---|---|---|---|
+| Reactive Resume | CV | Tarayıcıda CV editörü; self-host, JSON, YZ desteği | MIT |
+| RenderCV | CV | YAML'dan PDF; CV'yi kod gibi yönet | MIT |
+| JSON Resume | CV | Standart CV şeması ve CLI | MIT |
+| OpenResume | CV | CV oluşturucu ve ATS ayrıştırıcı | AGPL-3.0 |
+| Resume Matcher | CV | Yerel LLM ile ilan–CV uyumu | Apache-2.0 |
+| career-ops | Ajan | CLI ajanı: ilan tarar, 1-5 puanlar, CV uyarlar, takip eder | MIT |
+| ai-job-search | Ajan | Claude Code ile ilan değerlendirme, CV, ön yazı, mülakat | MIT |
+| ApplyPilot | Ajan | Otomatik başvuru; platform koşullarını kontrol edin | AGPL-3.0 |
 
 ---
 
@@ -278,6 +255,8 @@ Genel LLM'ler (ChatGPT, Claude, Gemini): ücretsiz katman mevcut.
 3. Hedef rollerine göre 2-4 alan CV'si çıkar
 4. Her ilan için: LLM ile boşluk analizi → uyarlama → insan kontrolü
 5. Başvuru takibi ve haftalık rutin: ilan uyarıları, eski ilan temizliği
+
+**İlk adım en önemlisi:** tek kaynak olmadan her uyarlama yeni bir kopya demektir.
 
 ---
 
