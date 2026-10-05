@@ -12,11 +12,11 @@ Söyleşide anılan araçların listesi. Fiyatlar ve lisanslar 05.10.2026 tarihi
 | OpenResume | CV oluşturucu ve ATS ayrıştırıcı (PDF'nin nasıl okunduğunu gösterir) | AGPL-3.0 | [GitHub](https://github.com/xitanggg/open-resume) · [open-resume.com](https://www.open-resume.com) |
 | Resume Matcher | Yerel LLM ile ilan–CV uyumu ve anahtar kelime analizi | Apache-2.0 | [GitHub](https://github.com/srbhr/Resume-Matcher) |
 
-## Açık Kaynak İş Arama Ajanları
+## Açık Kaynak İş Arama Eylemcileri
 
 | Araç | Ne yapar | Lisans | Bağlantı |
 |---|---|---|---|
-| career-ops | Claude Code, Codex gibi CLI ajanlarında çalışır; ilan tarar, 1-5 puanlar, CV ve ön yazı uyarlar, başvuruları takip eder | MIT | [GitHub](https://github.com/career-ops-hq/career-ops) |
+| career-ops | Claude Code, Codex gibi CLI eylemcilerinde çalışır; ilan tarar, 1-5 puanlar, CV ve ön yazı uyarlar, başvuruları takip eder | MIT | [GitHub](https://github.com/career-ops-hq/career-ops) |
 | ai-job-search | Claude Code tabanlı; ilan değerlendirme, CV uyarlama, ön yazı ve mülakat hazırlığı | MIT | [GitHub](https://github.com/MadsLorentzen/ai-job-search) |
 | ApplyPilot | Form doldurma ve otomatik başvuru. Platform kullanım koşullarını kontrol edin. | AGPL-3.0 | [GitHub](https://github.com/Pickle-Pixel/ApplyPilot) |
 

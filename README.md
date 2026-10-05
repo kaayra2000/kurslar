@@ -8,4 +8,4 @@ Söyleşiyi ben (Muhammed Kayra Bulut, YTÜ Yıldız Teknopark BT Yöneticisi) s
 	- Sunum: [sunum/sunum.pptx](sunum/sunum.pptx), [sunum/sunum.pdf](sunum/sunum.pdf)
 	- Slayt akışı ve notlar: [sunum/slayt_basliklari.md](sunum/slayt_basliklari.md)
 	- Araç ve kaynak listesi: [sunum/kaynaklar.md](sunum/kaynaklar.md)
-		- İçerik: ATS'nin CV okuma biçimi; ATS uyumlu CV kuralları; ölçülebilir madde yazımı ve LLM prompt'u; tek doğruluk kaynağı (YAML), LaTeX ve Git ile CV yönetimi; ajan kuralları ve iş akışları; ilan kaynakları ve akıllı filtre; doğrudan iletişim; açık kaynak, ücretsiz ve ücretli araçlar; riskler ve etik (halüsinasyon, KVKK)
+		- İçerik: ATS'nin CV okuma biçimi; ATS uyumlu CV kuralları; ölçülebilir madde yazımı ve LLM prompt'u; tek doğruluk kaynağı (YAML), LaTeX ve Git ile CV yönetimi; eylemci kuralları ve iş akışları; ilan kaynakları ve akıllı filtre; doğrudan iletişim; açık kaynak, ücretsiz ve ücretli araçlar; riskler ve etik (uydurma, KVKK)

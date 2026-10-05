@@ -10,7 +10,7 @@ Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — Ekim 2026
 # Bugün Ne Konuşacağız?
 
 1. CV'nin temelleri ve ATS
-2. CV'yi kod gibi yönetmek (kendi sistemim)
+2. CV'yi kod gibi yönetmek (genel çerçeve, örnek: kendi sistemim)
 3. İlan bulma ve akıllı başvuru
 4. Araç haritası: ücretsiz, ücretli, açık kaynak
 
@@ -22,9 +22,9 @@ Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — Ekim 2026
 |---|---|
 | ATS CV'yi ayrıştırır ve sıralar | LLM ile ilan analizi |
 | YZ destekli aday arama (LinkedIn Recruiter) | CV uyarlama, ön yazı |
-| Otomatik eleme soruları | Açık kaynak iş arama ajanları |
+| Otomatik eleme soruları | Açık kaynak iş arama eylemcileri |
 
-**Sonuç:** Fark yaratan şey araç değil; doğru, ölçülebilir ve ilana uygun içerik.
+**Sonuç:** Farkı oluşturan şey araç değil; doğru, ölçülebilir ve ilana uygun içerik.
 
 ---
 
@@ -47,8 +47,6 @@ Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — Ekim 2026
 | İlandaki terimleri birebir kullan | Açıklanmamış kısaltma |
 | Ters kronolojik sıra | Aynı bilginin tekrarı |
 | | Gerçek olmayan bilgi |
-
-> Not: "Yapma" listesi kendi CV depomdaki RULES.md dosyasından alındı.
 
 ---
 
@@ -84,76 +82,89 @@ Aşağıdaki ilan metnini ve CV maddemi karşılaştır.
 
 ---
 
-# CV'yi Kod Gibi Yönetmek: Problem
+# Sorun: Tek CV Her İlana Uymaz
 
 - Tek CV her ilana uymaz
-- 4 alan (Java, LLM, ML, MLOps) × 2 dil + 64 ilan paketi = onlarca dosya
+- Birden çok alan × iki dil + ilana özel sürümler = onlarca dosya
 - Hangi sürüm güncel? Yeni proje hangi CV'lere girdi? TR ve EN tutarlı mı?
 
-**Çözüm:** Yazılım mühendisliği prensipleri: tek doğruluk kaynağı, derleme, sürüm kontrolü, otomasyon.
+> Örnek (kendi CV depom): 4 alan (Java, LLM, ML, MLOps) × 2 dil + 64 ilan paketi
+
+**Çözüm:** Yazılım mühendisliği prensipleri: tek doğruluk kaynağı, derleme, sürüm kontrolü, eylemci otomasyonu.
 
 ---
 
 # Mimari: Tek Kaynaktan Onlarca CV
 
+Genel akış (altta kendi depomdaki karşılığı):
+
 ```text
-info/*.yml  ──►  genel_cvler/ (java, llm, machine_learning, mlops)
-   │                   │
-   └──────────────►  ilana_ozel_cvler/<sirket_pozisyon>/
-                         │
-                 LaTeX + build.sh (Docker pdflatex)
-                         │
-                  ATS uyumlu TR/EN PDF  ── Git ile sürümlenir
+Tek kaynak  ──►  Alan CV'leri  ──►  İlana özel CV'ler  ──►  Derleme  ──►  ATS uyumlu PDF
+(YAML/JSON)      (hedef role göre)  (gerektiğinde)         (LaTeX, RenderCV)  (TR ve EN)
+info/*.yml       genel_cvler/       ilana_ozel_cvler/      build.sh           TR / EN PDF
 ```
 
-- 71 proje kaydı, 4 alan CV'si, 64 ilan paketi (17'sinde ilana özel CV)
-- 76 commit (Mart–Eylül 2026)
+- Git ile sürümlenir; kurallar eylemcilere dosyada verilir
+- Örnek uygulama (kendi CV depom): 71 proje kaydı, 4 alan CV'si, 64 ilan paketi, 76 commit
 
 ---
 
-# Tek Doğruluk Kaynağı: info/projects.yml
+# Tek Doğruluk Kaynağı Olmalı
+
+- **Her bilgi tek yerde:** CV'ler kopyalanmaz, kaynaktan türetilir
+- **İki dil tek kayıtta:** TR ve EN birbirinden kopmaz
+- **Etiketler eşler:** kaydın hangi CV'ye gireceğini belirler
+- **Tarih kanıttan gelir:** örneğin reponun ilk ve son commit'i
+
+Örnek: `info/projects.yml`
 
 ```yaml
 - id: agentic-dynamic-memory-router
   name:
     en: Agentic Dynamic Memory Router
-    tr: Ajan Dinamik Bellek Yönlendiricisi
+    tr: Eylemci Dinamik Bellek Yönlendiricisi
   category: llm_ai
   tags: [python, ai-agents, context-window]
   dates: Jul 2026 -- Aug 2026
-  github_url: https://github.com/kaayra2000/agentic_dynamic_memory_router
   featured: true
+  cv_section: featured_llm
 ```
-
-- İki dil tek kayıtta
-- Tarih aralığı reponun ilk ve son commit'inden hesaplanır
-- Etiketler alan CV'si eşlemesinde kullanılır
 
 ---
 
-# Ajan Kuralları Dosyada Yaşar (AGENTS.md / RULES.md)
+# Eylemcilere Kurallar Verilmeli
 
-- Her değişiklik TR ve EN CV'ye eşzamanlı yansır
-- Sıfır halüsinasyon: gerçek olmayan bilgi yazılmaz, ilan canlı doğrulanır
-- Onaysız ekleme veya silme yok: "şu anki veri" ile "gerçek veri" karşılaştırılır
-- Snapshot koruması: başvurulan paket geriye dönük değişmez
-- Kalite kapısı: Overfull \hbox yok, her sayfa görsel kontrol, ATS metin çıkarımı
+- **Diller eşzamanlı:** her değişiklik tüm dillere anlamca eşit yansır
+- **Sıfır uydurma:** gerçek olmayan bilgi yazılmaz, ilan canlı doğrulanır
+- **Onaysız değişiklik yok:** eylemci farkı gösterir, insan onaylar
+- **Başvuru anı korunur:** gönderilen CV sonradan değiştirilmez
+- **Kalite kapısı:** taşma kontrolü, sayfa sayfa görsel kontrol, ATS metin çıkarımı
+- **Kurallar dosyada:** düz metin; hangi eylemci olursa olsun aynı dosyayı okur
 
-> Not: AGENTS.md dosyasını Claude Code, Codex ve Gemini gibi farklı ajanlar okur.
+> Örnek uygulama: AGENTS.md ve RULES.md dosyaları; Claude Code, Codex ve Gemini aynı dosyayı okur.
 
 ---
 
 # İş Akışları: Tek Cümleyle Tetiklenir
 
-- **hesapları senkronize et:** `fetch_latest_data.py` GitHub, Hugging Face, Medium, ORCID ve LinkedIn verisini çeker; ajan kıyaslar; madde madde onay
-- **cvleri senkronize et:** `info/*.yml` ile kök ve alan CV'leri karşılaştırılır; ilgisiz alana dokunulmaz
-- **ilan eşleştir:** ilan metni → en uygun CV ya da yeni paket
-- **iş araştırması yap ve cv üret:** LinkedIn öncelikli tarama → filtre → paket
-- **eski ilanları temizle:** `clean_old_jobs.py --dry-run` → tablo → onay → silme
+| İş akışı | Ne yapar | Örnek komut (kendi depom) |
+|---|---|---|
+| Hesap verisini güncelle | Profil verisi çekilir, kaynakla kıyaslanır; her fark tek tek onaylanır | `hesapları senkronize et` |
+| CV'leri kaynakla eşitle | Kaynak dosya CV'lerle karşılaştırılır; yalnızca ilgili CV değişir | `cvleri senkronize et` |
+| İlanı eşleştir | İlan metni analiz edilir; en uygun CV seçilir ya da yeni CV önerilir | `ilan eşleştir` |
+| İlan ara, CV hazırla | İlanlar taranır; kapalı ve başvurulmuş olanlar elenir, paket hazırlanır | `iş araştırması yap ve cv üret` |
+| Eski ilanları temizle | Silinecekler önce listelenir; açık onaydan sonra silinir | `eski ilanları temizle` |
 
 ---
 
-# Bir İlan Paketinin Anatomisi
+# Her Başvurunun Kaydı Tutulmalı
+
+- **İlan metni saklanır:** ilan yayından kalksa da neye başvurulduğu bilinir
+- **Eşleşme notu tutulur:** hangi CV seçildi ve neden seçildi
+- **Önce mevcut CV denenir:** uygun ve güncel CV varsa yenisi oluşturulmaz
+- **Gerekirse ilana özel CV:** kaynaktan türetilir; elle kopyalanmaz
+
+Örnek uygulama (ilan paketi):
 
 ```text
 ilana_ozel_cvler/anzera_ai_engineer/
@@ -161,8 +172,7 @@ ilana_ozel_cvler/anzera_ai_engineer/
 └── ILAN_NOTLARI.md   # eşleşme analizi ve tek öncelikli CV
 ```
 
-- Karar: `genel_cvler/llm` yeterli, yeni .tex ve .pdf üretilmedi
-- Uygun CV yoksa veya eskiyse: `info/` verisinden ilana özel TR/EN .tex ve .pdf üretilir
+- 64 ilan paketi, 17'sinde ilana özel CV
 
 ---
 
@@ -209,9 +219,9 @@ paylaşabilir miyim?
 | JSON Resume | CV | Standart CV şeması ve CLI | MIT |
 | OpenResume | CV | CV oluşturucu ve ATS ayrıştırıcı | AGPL-3.0 |
 | Resume Matcher | CV | Yerel LLM ile ilan–CV uyumu | Apache-2.0 |
-| career-ops | Ajan | CLI ajanı: ilan tarar, 1-5 puanlar, CV uyarlar, takip eder | MIT |
-| ai-job-search | Ajan | Claude Code ile ilan değerlendirme, CV, ön yazı, mülakat | MIT |
-| ApplyPilot | Ajan | Otomatik başvuru; platform koşullarını kontrol edin | AGPL-3.0 |
+| career-ops | Eylemci | CLI eylemcisi: ilan tarar, 1-5 puanlar, CV uyarlar, takip eder | MIT |
+| ai-job-search | Eylemci | Claude Code ile ilan değerlendirme, CV, ön yazı, mülakat | MIT |
+| ApplyPilot | Eylemci | Otomatik başvuru; platform koşullarını kontrol edin | AGPL-3.0 |
 
 ---
 
@@ -234,13 +244,13 @@ Genel LLM'ler (ChatGPT, Claude, Gemini): ücretsiz katman mevcut.
 - **Yeni başlıyorum:** ücretsiz LLM + Reactive Resume
 - **ATS'ye takılıyor muyum?** OpenResume ayrıştırıcı, Jobscan ücretsiz taramaları
 - **Çok başvuru, takip zor:** Huntr veya Teal ücretsiz katmanı
-- **Geliştiriciyim, kontrol bende olsun:** RenderCV veya LaTeX + Git + ajan (career-ops, ai-job-search ya da kendi AGENTS.md dosyan)
+- **Geliştiriciyim, kontrol bende olsun:** RenderCV veya LaTeX + Git + eylemci (career-ops, ai-job-search ya da kendi AGENTS.md dosyan)
 
 ---
 
 # Riskler ve Etik
 
-- **Halüsinasyon:** LLM olmayan deneyim veya sayı ekleyebilir; her maddeyi doğrula
+- **Uydurma:** LLM olmayan deneyim veya sayı ekleyebilir; her maddeyi doğrula
 - **Kişisel veri (KVKK):** telefon, adres, kimlik bilgisini bulut LLM'e yükleme; maskele veya yerel model kullan
 - **Otomatik toplu başvuru:** platform koşullarını ihlal edebilir, hesap kısıtlanabilir
 - **"YZ kokan" metin:** kalıp ifadeler, abartılı sıfatlar; kendi sesini koru
@@ -263,5 +273,4 @@ Genel LLM'ler (ChatGPT, Claude, Gemini): ücretsiz katman mevcut.
 # Teşekkürler — Sorular?
 
 - Sunum ve kaynaklar: github.com/kaayra2000/kurslar
-- Araç listesi: `sunum/kaynaklar.md`
 - LinkedIn: Muhammed Kayra Bulut · GitHub: kaayra2000
