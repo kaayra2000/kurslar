@@ -11,3 +11,4 @@ Ders kapsamında iki derse misafir oldum ve bu iki dersin anlatımını ben yapt
 
 - **Ders 2 (27 Kasım 2025)** — Büyük Dil Modellerini Uygulama ve Geliştirme
 	- Sunum: [Ders 2/sunum.pptx](Ders%202/sunum.pptx), [Ders 2/sunum.pdf](Ders%202/sunum.pdf)
+		- İçerik: Hugging Face pipeline; AutoModel ve AutoTokenizer; Datasets kütüphanesi; Model Hub ve model kartları; transfer öğrenmesi ve ince ayar için veri hazırlama; kayıp fonksiyonu ve öğrenme oranı zamanlaması; başarım ölçütleri; halüsinasyon, yanlılık ve prompt injection; araç kullanımı, çok modluluk ve LLM-OS
