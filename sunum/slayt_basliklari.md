@@ -1,7 +1,7 @@
 # Yapay Zekâ ile Kariyer
 ### CV Hazırlama, Yönetme ve İlan Bulma
 
-Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — Ekim 2026
+Muhammed Kayra Bulut — BT Yöneticisi, YTÜ Yıldız Teknopark — 23 Kasım 2026
 
 > Not: Bu sunumdaki CV sistemi kendi iş arama sürecimde kullandığım gerçek bir depodur.
 
