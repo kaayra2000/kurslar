@@ -76,7 +76,7 @@ x3 ──w3──┘
 
 ---
 
-# Örnek: Bir Nöron "Konsere Gideyim mi?" Diye Karar Verir
+# Örnek Nöron: "Konsere Gideyim mi?"
 
 | Girdi | Değer (x) | Önem (w) | x · w |
 |---|---|---|---|
@@ -114,6 +114,7 @@ x3 ──w3──┘
 
 - Tek nöron düzlemi **tek bir doğruyla** ikiye böler
 - XOR'da 1'leri 0'lardan ayıran tek bir doğru yoktur
+- 1969: bu gözlem yapay zekâ kışını başlatır
 - **Çözüm:** nöronları katmanlar hâlinde birleştirmek
 
 ---
@@ -123,7 +124,7 @@ x3 ──w3──┘
 - **Girdi katmanı:** veriyi alır (piksel, kelime, sensör değeri)
 - **Gizli katmanlar:** ara özellikleri öğrenir
 - **Çıktı katmanı:** cevabı verir (sınıf olasılıkları, sayı)
-- Her bağlantı bir ağırlıktır; GPT-3'te 175 milyar ağırlık vardır
+- Her çizgi bir ağırlıktır: slayttaki örnek ağda 50, GPT-3'te 175 milyar ağırlık vardır
 
 > Not: Bir gizli katmanlı ağ bile, yeterince nöronla, her sürekli fonksiyona istenen yakınlıkta yaklaşabilir (evrensel yaklaşım teoremi).
 
@@ -197,7 +198,7 @@ Döngü binlerce, milyonlarca kez tekrarlanır.
 
 ---
 
-# Ezber Değil Genelleme: Aşırı Öğrenme
+# Ezber Değil Genelleme: Aşırı Öğrenmeyi İzleyin
 
 - Eğitim kaybı düşerken doğrulama kaybı yükselmeye başlarsa model **ezberliyordur**
 - **Çareler:**
@@ -252,12 +253,15 @@ Kenar filtresi
 
 ---
 
-# Büyük Dil Modelleri Bir Sonraki Kelimeyi Tahmin Eder
+# Dil Modelleri Bir Sonraki Kelimeyi Tahmin Eder
 
 - Eğitim hedefi basit: metindeki bir sonraki token'ı tahmin et
+- Örnek: "Bugün hava çok güzel, hadi ..." → dışarı %41, parka %27, yürüyüşe %18 (temsilî)
 - Ölçek büyüdükçe yeni beceriler ortaya çıkar: özetleme, kod yazma, akıl yürütme
 - Ardından insan geri bildirimiyle ince ayar yapılır (RLHF)
 - Sınır: emin görünerek yanlış bilgi üretebilir (halüsinasyon)
+
+> Not: Model her adımda bir kelime seçer, seçtiğini girdiye ekler ve yeniden tahmin eder.
 
 ---
 
@@ -265,7 +269,7 @@ Kenar filtresi
 
 ---
 
-# Derin Öğrenme Her Alanda
+# Derin Öğrenme Hayatın Her Alanında
 
 - **Sağlık:** röntgen ve MR'da hastalık tespiti
 - **Bilim:** AlphaFold ile protein yapısı tahmini
@@ -276,7 +280,7 @@ Kenar filtresi
 
 ---
 
-# 12 Satırda Bir Sinir Ağı (PyTorch)
+# 12 Satırda XOR'u Çözen Sinir Ağı (PyTorch)
 
 ```python
 import torch
@@ -298,15 +302,15 @@ for _ in range(1000):
 
 ---
 
-# Canlı Demo
+# Canlı Demo: Öğrenmeyi Gözünüzle Görün
 
 - **TensorFlow Playground:** tarayıcıda ağ kur, katman ve nöron ekle, öğrenmeyi izle (playground.tensorflow.org)
-- **Notebook:** yalnızca NumPy ile sıfırdan sinir ağı; XOR ve el yazısı rakam tanıma
-- Google Colab'de ücretsiz çalışır; kurulum gerekmez
+- **Demo notebook** ([notebook/derin_ogrenme_ornek.ipynb](../notebook/derin_ogrenme_ornek.ipynb)): yalnızca NumPy ile sıfırdan sinir ağı; XOR ve el yazısı rakam tanıma, test doğruluğu yaklaşık %96
+- İkisi de tarayıcıda ya da Google Colab'de ücretsiz çalışır; kurulum gerekmez
 
 ---
 
-# Nereden Başlamalı?
+# Nereden Başlamalı? Beş Adımlık Yol Haritası
 
 1. **Python:** temel sözdizimi, NumPy
 2. **Matematik sezgisi:** vektör, matris, türev (3Blue1Brown videoları)
