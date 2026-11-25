@@ -33,8 +33,9 @@ Derste anılan kaynakların listesi. Bağlantılar 25.11.2026 tarihinde kontrol 
 
 | Kütüphane | Ne için | Bağlantı |
 |---|---|---|
-| NumPy | Matris işlemleri; dersteki notebook yalnızca bunu kullanır | [numpy.org](https://numpy.org) |
-| scikit-learn | Klasik makine öğrenmesi ve hazır veri setleri | [scikit-learn.org](https://scikit-learn.org) |
+| NumPy | Matris işlemleri; dersteki sinir ağı yalnızca NumPy ile yazılır | [numpy.org](https://numpy.org) |
+| Matplotlib | Grafik çizimi; notebook'taki kayıp eğrileri ve karar sınırı | [matplotlib.org](https://matplotlib.org) |
+| scikit-learn | Klasik makine öğrenmesi ve hazır veri setleri; notebook'taki el yazısı rakam veri seti buradan gelir | [scikit-learn.org](https://scikit-learn.org) |
 | PyTorch | Derin öğrenme; araştırmada en yaygın kütüphane | [pytorch.org](https://pytorch.org) |
 
 ## Dönüm Noktası Makaleler
