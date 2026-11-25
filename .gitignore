@@ -1,2 +1,7 @@
 **/*venv*/**
 **.joblib
+# Office kilit dosyaları
+~$*.pptx
+.~lock*#
+# Jupyter
+.ipynb_checkpoints/
