@@ -24,3 +24,8 @@ source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install numpy matplotlib scikit-learn jupyter
 jupyter notebook notebook/derin_ogrenme_ornek.ipynb
 ```
+
+Projeksiyonda koyu zeminli kod silik görünebilir. Demodan önce açık temaya geçin ve yazıyı büyütün:
+
+- **Colab:** Araçlar → Ayarlar → Site → Tema: `light`; yazı boyutu için Düzenleyici → Yazı tipi boyutu.
+- **Jupyter:** Ayarlar → Tema → JupyterLab Light; yakınlaştırma için `Ctrl` + `+`.
